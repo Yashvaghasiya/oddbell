@@ -1,0 +1,33 @@
+# Oddball Website - Git Ignore
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor directories
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Node modules (if you add any build tools later)
+node_modules/
+package-lock.json
+
+# Build outputs (if needed later)
+dist/
+build/

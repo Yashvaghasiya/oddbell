@@ -1,0 +1,724 @@
+@charset 'UTF-8';
+
+:root {
+    --color-green: #00A896;
+    --color-teal: #006D77;
+    --color-pink-hot: #F05D5E;
+    --color-bg-pink: #FFF0F0;
+    --primary-font: 'Poppins', sans-serif;
+    --accent-font: 'Brush Script MT', 'Comic Sans MS', cursive;
+    /* Fallback for Brittany Signature if missing */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--primary-font);
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Layout Utilities */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+    /* Fluid width padding */
+    position: relative;
+    width: 100%;
+}
+
+.section-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 60px 0 40px;
+    color: #000;
+    letter-spacing: -0.5px;
+}
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    /* Reduced for smaller cropped logo */
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: visible;
+    min-height: 90px;
+    /* Reduced for cropped logo */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    width: 100%;
+    padding: 0 80px 0 40px;
+    /* Significantly increased right padding */
+    box-sizing: border-box;
+    /* Include padding in width calculation */
+}
+
+.logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 70px;
+    /* Adjusted for cropped logo */
+    width: auto;
+    display: block;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+    /* Prevent shrinking */
+    white-space: nowrap;
+    /* Prevent text wrapping */
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 1.2rem;
+    /* Increased for better visibility */
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--color-teal);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    text-align: center;
+    padding: 0;
+    /* Remove padding for full width */
+    width: 100%;
+}
+
+.hero .container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.hero-box {
+    width: 100%;
+    height: 90vh;
+    /* Full viewport height impact */
+    border-radius: 0;
+    /* No corners for full width */
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    box-shadow: none;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensure video fills the screen */
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 0;
+}
+
+.hero-video.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Odd Approach Section */
+.odd-approach {
+    padding: 50px 0;
+}
+
+.odd-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 0;
+    /* Removed spacing as requested */
+    gap: 0;
+    position: relative;
+}
+
+.odd-text {
+    flex: 0 0 45%;
+    /* Adjusted to prevent overflow (45+55=100) */
+    max-width: none;
+    padding-right: 20px;
+    z-index: 2;
+}
+
+.odd-visual {
+    flex: 0 0 55%;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    overflow: visible;
+    /* Ensure nothing hides the image */
+}
+
+.odd-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin-right: 100px;
+    /* Right spacing to prevent edge touching */
+}
+
+/* Typography Refinements */
+.script-title {
+    font-family: var(--accent-font);
+    font-size: 6rem;
+    /* Increased further */
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #4FC3A1;
+}
+
+.sub-title {
+    font-size: 2rem;
+    /* Increased further */
+    color: #1a4f6e;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: -0.3px;
+}
+
+.odd-text p {
+    font-size: 1.5rem;
+    /* Increased further */
+    color: #666;
+    line-height: 1.6;
+    max-width: 100%;
+    /* Full usage of container */
+}
+
+/* Consultation Section */
+.consultation-section {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.consultation-image-wrapper,
+.culture-image-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    /* Prevent image overflow */
+}
+
+.consultation-banner,
+.culture-banner,
+.contact-banner {
+    width: 100%;
+    max-width: 100%;
+    /* Ensure images don't exceed container */
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.consultation-text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.consultation-text-overlay>* {
+    pointer-events: auto;
+}
+
+.consultation-text-overlay .content-group {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    left: 7%;
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.rotate-text-group {
+    transform: rotate(-8deg);
+    margin-bottom: 10px;
+}
+
+.handwritten-heading {
+    font-family: var(--accent-font);
+    font-size: 5rem;
+    /* Increased for better visibility */
+    color: #154660;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.odd-stickers {
+    display: inline-flex;
+    gap: 8px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.sticker {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    color: #fff;
+    padding: 4px 10px;
+    border: 3px solid #fff;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15);
+    line-height: 1;
+}
+
+.sticker.green {
+    background-color: #00A896;
+    transform: rotate(-6deg);
+}
+
+.sticker.orange {
+    background-color: #F87D39;
+    transform: rotate(6deg);
+}
+
+.sticker.orange:last-child {
+    transform: rotate(-4deg);
+}
+
+.main-copy h3 {
+    font-size: 1.6rem;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+.highlight-blue {
+    color: #0066CC;
+    font-weight: 800;
+}
+
+.price-tag-long {
+    background-color: #F85A5A;
+    color: white;
+    padding: 10px 22px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: inline-block;
+    border-radius: 8px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+    transform: rotate(-2deg);
+}
+
+.consult-desc-box {
+    color: #1a4f6e;
+    font-size: 2rem;
+    /* Increased for better readability */
+    line-height: 1.6;
+    max-width: 95%;
+}
+
+.consult-desc-box strong {
+    font-weight: 800;
+    color: #154660;
+}
+
+.tagline-blue {
+    color: #0066CC;
+    font-weight: 700;
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+/* Culture Section */
+.culture-section {
+    padding-bottom: 100px;
+}
+
+.culture-text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.culture-text-overlay .culture-card {
+    position: absolute;
+    top: 48%;
+    left: 7%;
+    width: 42%;
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.culture-card .bulb-icon-img {
+    display: none;
+}
+
+.culture-card h3 {
+    font-size: 2rem;
+    color: #333;
+    font-weight: 400;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.culture-card h3 span.normal-text {
+    color: #444;
+    font-weight: 400;
+}
+
+.culture-card h3 strong,
+.culture-card h3 b,
+.culture-card h3 .bold-blue {
+    color: #154660;
+    font-weight: 800;
+}
+
+.culture-desc {
+    font-size: 1.15rem;
+    color: #006D77;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+/* Contact Section Refinements */
+.contact-section {
+    padding-bottom: 100px;
+    background-color: transparent;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-image-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.contact-banner {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.contact-text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.contact-text-overlay>* {
+    pointer-events: auto;
+}
+
+/* Let's Talk Group */
+.lets-talk-group {
+    position: absolute;
+    top: 53%;
+    /* Centered in Blue Bubble */
+    left: 24%;
+    /* Moved further left as requested */
+    transform: translate(-50%, -50%);
+    font-size: 6rem;
+    /* Reduced size to fit strictly inside */
+    font-weight: 700;
+    font-family: var(--primary-font);
+    line-height: 1;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    letter-spacing: -1.5px;
+}
+
+.lt-black {
+    color: #000000;
+    margin-right: 25px;
+    /* Balanced spacing */
+}
+
+.lt-white {
+    color: #FFFFFF;
+}
+
+/* Contact Info Group (Right Side) */
+.contact-info-group {
+    position: absolute;
+    top: 52%;
+    left: 58%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 400px;
+    /* Increased width for larger text */
+}
+
+.contact-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-size: 2rem;
+    /* Larger text size */
+    font-weight: 500;
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    padding-bottom: 12px;
+    width: 100%;
+}
+
+.contact-row:last-child {
+    border-bottom: none;
+}
+
+/* Icons */
+.icon-phone::before,
+.icon-mail::before,
+.icon-insta::before,
+.icon-linkedin::before {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+.icon-phone::before {
+    content: '📞';
+}
+
+.icon-mail::before {
+    content: '✉';
+}
+
+.icon-insta::before {
+    content: '◉';
+    font-size: 2rem;
+}
+
+.icon-linkedin::before {
+    content: 'in';
+    font-family: 'Arial', sans-serif;
+    font-weight: 900;
+    font-size: 1.6rem;
+    background: #fff;
+    color: #52C5A2;
+}
+
+/* Hand Cursor */
+.hand-cursor {
+    position: absolute;
+    bottom: 0%;
+    right: 15%;
+    width: 70px;
+    height: 90px;
+    background-image: url('../images/icons/hand-icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.2));
+    animation: floatHand 2s infinite ease-in-out;
+    pointer-events: none;
+    z-index: 10;
+}
+
+@keyframes floatHand {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Icons */
+.icon-phone::before {
+    content: '\260E';
+    font-size: 1.4rem;
+}
+
+.icon-mail::before {
+    content: '\2709';
+    font-size: 1.4rem;
+}
+
+.icon-insta::before {
+    content: '📷';
+    font-size: 1.4rem;
+}
+
+.icon-linkedin::before {
+    content: 'in';
+    font-family: serif;
+    font-weight: 900;
+    font-size: 1.4rem;
+    background: #fff;
+    color: #52C5A2;
+    padding: 0 4px;
+    border-radius: 2px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+    .odd-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .odd-text,
+    .odd-visual {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .odd-text {
+        padding: 0 20px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .consultation-text-overlay .content-group,
+    .culture-text-overlay .culture-card {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: 100%;
+        padding: 40px 20px;
+        background: rgba(255, 255, 255, 0.95);
+        margin-top: -50px;
+        z-index: 10;
+        border-radius: 20px;
+    }
+
+    .contact-text-overlay {
+        position: relative;
+        background: transparent;
+        /* Overlay on image, or #4FC3A1 if image fails */
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .contact-image-wrapper {
+        height: auto;
+    }
+
+    .contact-banner {
+        min-height: 500px;
+        /* Ensure height for mobile content */
+        object-fit: cover;
+    }
+
+    /* Resizing Text for Mobile */
+    .lets-talk-group {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin-bottom: 30px;
+        font-size: 3.5rem;
+        /* Resize */
+        justify-content: center;
+        width: 100%;
+    }
+
+    .lt-black {
+        margin-right: 15px;
+        color: #fff;
+        /* Ensure visibility on dark image or teal fallback */
+    }
+
+    /* Check background image color: It's teal. Black text might be low contrast if layout shifts. 
+       Safest: White for both or Black/White as desktop. 
+       Desktop: Black/White. Mobile: Image scales. Text might cover wrong colored bubble.
+       Let's keep Black/White. */
+    .lt-black {
+        color: #000;
+    }
+
+
+    .contact-info-group {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        align-items: center;
+    }
+
+    .contact-row {
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+
+    .hand-cursor {
+        display: none;
+    }
+
+    /* Full Width Mobile Adjustment */
+    .container {
+        padding: 0 20px;
+    }
+}
