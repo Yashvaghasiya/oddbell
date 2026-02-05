@@ -725,22 +725,180 @@ header {
         padding: 0 5px;
     }
 
-    /* UNIFORM SCALING RULE - NO EXCEPTIONS */
-    /* Applied to ALL section wrappers identically */
-    /* Virtual width 500% (~1875px) - scaling 0.2 brings it to ~375px */
+    /* GLOBAL MOBILE RESET - Remove Scaling Hack */
     .hero-box,
     .consultation-image-wrapper,
     .culture-image-wrapper,
-    .contact-image-wrapper {
-        transform: scale(0.2);
-        transform-origin: top center;
-        width: 500%;
-        margin-left: -200%;
-        margin-bottom: -80%;
+    .contact-image-wrapper,
+    .odd-item-wrapper {
+        width: 100% !important;
+        height: auto !important;
+        transform: none !important;
+        margin: 0 !important;
+        overflow: hidden;
+        border-radius: 0;
     }
 
-    /* ODD APPROACH REFACOR - CSS GRID MOBILE */
-    /* Ensuring this runs on all mobile/tablet-portrait sizes */
+    /* 1. HERO SECTION MOBILE */
+    .hero-box {
+        height: 60vh !important;
+        /* Fixed manageable height */
+        position: relative;
+    }
+
+    .hero-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Cover the container */
+    }
+
+    /* 2. CONSULTATION & CULTURE - SHARED STACKED LAYOUT */
+    .consultation-content,
+    .culture-content {
+        padding: 0;
+    }
+
+    /* Image acts as top visual, text comes below */
+    .consultation-banner,
+    .culture-banner {
+        width: 100%;
+        height: 250px;
+        /* Limit image height */
+        object-fit: cover;
+        display: block;
+    }
+
+    /* TEXT OVERLAYS -> CONVERT TO STATIC BLOCKS */
+    .consultation-text-overlay,
+    .culture-text-overlay,
+    .culture-text-overlay .culture-card {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        height: auto !important;
+        transform: none !important;
+        padding: 30px 20px;
+        background: #F9FAFB;
+        /* Light bg for readability */
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .consultation-text-overlay .content-group {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Adjust Inner Elements */
+    .handwritten-heading {
+        font-size: 3.5rem;
+    }
+
+    .sticker {
+        font-size: 1.5rem;
+        padding: 4px 8px;
+    }
+
+    .main-copy h3 {
+        font-size: 1.4rem;
+        margin-top: 15px;
+    }
+
+    .price-tag-long {
+        font-size: 1rem;
+        padding: 10px 20px;
+        margin: 10px 0;
+    }
+
+    .consult-desc-box {
+        font-size: 1.1rem;
+        max-width: 100%;
+    }
+
+    .tagline-blue {
+        font-size: 1rem;
+    }
+
+    /* Culture Specifics */
+    .culture-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .culture-desc {
+        font-size: 1.1rem;
+        margin-top: 15px;
+    }
+
+    /* 3. CONTACT SECTION MOBILE */
+    .contact-content {
+        padding: 0;
+    }
+
+    .contact-banner {
+        height: 250px;
+        object-fit: cover;
+    }
+
+    .contact-text-overlay {
+        position: relative !important;
+        height: auto !important;
+        background: #154660;
+        /* Dark blue bg for contact info */
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    /* Stack "Let's Talk" */
+    .lets-talk-group {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        font-size: 4rem;
+        /* Smaller size */
+        margin-bottom: 20px;
+    }
+
+    .lt-black {
+        color: #fff;
+    }
+
+    /* Make "Let's" white on dark bg */
+
+    /* Stack Contact Info */
+    .contact-info-group {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .contact-row {
+        font-size: 1.2rem;
+        justify-content: center;
+        /* Center align text */
+    }
+
+    /* Hand Cursor - Hide or reposition */
+    .hand-cursor {
+        display: none;
+        /* Hide on mobile to avoid clutter */
+    }
+
+    /* REINSTATE ODD APPROACH GRID (Already correct, just ensuring order) */
     .odd-item-wrapper {
         width: 100% !important;
         margin: 0 !important;
