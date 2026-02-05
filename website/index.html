@@ -5,7 +5,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oddball Advertising</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=4">
+    <style>
+        /* CRITICAL MOBILE FIX - INLINE TO FORCE RELOAD */
+        @media (max-width: 767px) {
+
+            /* 1. RESET SCALING for odd-item-wrapper */
+            .odd-item-wrapper {
+                transform: none !important;
+                width: 100% !important;
+                margin: 0 !important;
+            }
+
+            /* 2. GRID LAYOUT for odd-item */
+            .odd-item {
+                display: grid !important;
+                grid-template-rows: auto minmax(180px, 240px);
+                /* Vertical stack */
+                gap: 20px;
+                text-align: center;
+                margin-bottom: 40px;
+                padding-bottom: 20px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            .odd-item:last-child {
+                border-bottom: none;
+            }
+
+            /* 3. TEXT STYLING */
+            .odd-text {
+                flex: none !important;
+                width: 100% !important;
+                padding: 0 20px !important;
+                /* Symmetric padding */
+                box-sizing: border-box;
+            }
+
+            .odd-text .script-title {
+                font-size: 3.5rem !important;
+            }
+
+            .odd-text .sub-title {
+                font-size: 1.5rem !important;
+            }
+
+            /* 4. IMAGE STYLING */
+            .odd-visual {
+                flex: none !important;
+                width: 100% !important;
+                justify-content: center !important;
+                align-items: center !important;
+            }
+
+            .odd-image {
+                margin: 0 !important;
+                max-width: 80% !important;
+                height: auto;
+                object-fit: contain;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -14,7 +74,7 @@
     <header>
         <div class="container nav-container">
             <a href="#" class="logo">
-                <img src="../../assets/logos/Oddball logos-01.png" alt="Oddball Advertising Logo">
+                <img src="../assets/logos/Oddball logos-01.png" alt="Oddball Advertising Logo">
             </a>
             <nav>
                 <ul class="nav-links">
@@ -54,52 +114,66 @@
             <h2 class="section-title">Odd approach</h2>
 
             <!-- The Seed -->
-            <div class="odd-item">
-                <div class="odd-text">
-                    <h3 class="script-title text-green">The Seed</h3>
-                    <h4 class="sub-title">The thought behind our agency</h4>
-                    <p>Odd stands out.</p>
-                    <p>This thought has given birth to a young, dynamic and whimsical advertising firm Oddball. It is a
-                        full service, yet experimental advertising agency with both, brand building and brand management
-                        capabilities.</p>
-                </div>
-                <div class="odd-visual">
-                    <img src="../assets/images/backgrounds/The_Seed.png" alt="The Seed Illustration" class="odd-image">
+            <div class="odd-item-wrapper">
+                <div class="odd-item">
+                    <div class="odd-text">
+                        <h3 class="script-title text-green">The Seed</h3>
+                        <h4 class="sub-title">The thought behind our agency</h4>
+                        <p>Odd stands out.</p>
+                        <p>This thought has given birth to a young, dynamic and whimsical advertising firm Oddball. It
+                            is a
+                            full service, yet experimental advertising agency with both, brand building and brand
+                            management
+                            capabilities.</p>
+                    </div>
+                    <div class="odd-visual">
+                        <img src="../assets/images/backgrounds/The_Seed.png" alt="The Seed Illustration"
+                            class="odd-image">
+                    </div>
                 </div>
             </div>
 
             <!-- The Bark -->
-            <div class="odd-item">
-                <div class="odd-text">
-                    <h3 class="script-title text-green">The Bark</h3>
-                    <h4 class="sub-title">Our venture and experiential approach</h4>
-                    <p>Consider the ever evolving digital marketing fabric around the globe. Oddball believes in keeping
-                        an eagle eye on world view for marketing and advertising. An expert in brand building, public
-                        relation, conventional, digital and social media advertising, the firm also believes in
-                        balancing each campaign through traditional and innovative media. That's how we bark on the
-                        wagon and then maneuver it to reach brand goals.</p>
-                </div>
-                <div class="odd-visual">
-                    <img src="../assets/images/backgrounds/The_Bark.png" alt="The Bark Illustration" class="odd-image">
+            <div class="odd-item-wrapper">
+                <div class="odd-item">
+                    <div class="odd-text">
+                        <h3 class="script-title text-green">The Bark</h3>
+                        <h4 class="sub-title">Our venture and experiential approach</h4>
+                        <p>Consider the ever evolving digital marketing fabric around the globe. Oddball believes in
+                            keeping
+                            an eagle eye on world view for marketing and advertising. An expert in brand building,
+                            public
+                            relation, conventional, digital and social media advertising, the firm also believes in
+                            balancing each campaign through traditional and innovative media. That's how we bark on the
+                            wagon and then maneuver it to reach brand goals.</p>
+                    </div>
+                    <div class="odd-visual">
+                        <img src="../assets/images/backgrounds/The_Bark.png" alt="The Bark Illustration"
+                            class="odd-image">
+                    </div>
                 </div>
             </div>
 
             <!-- The Farmer -->
-            <div class="odd-item">
-                <div class="odd-text">
-                    <h3 class="script-title text-green">The farmer</h3>
-                    <h4 class="sub-title">The advertising expertise</h4>
-                    <div class="dotted-line-decoration"></div>
-                    <p>An expert in all aspects of brand building, Oddball is continuously on a look out for innovative
-                        brand solutions that can provide both long-term and short-term benefits to our brand clients. We
-                        must know what season yields what crop and how long does it take to harvest the fruits of
-                        labour. We educate ourselves as much as we educate our brand partners promoting complete
-                        transparency and managed expectations. Our firm believes in balancing each campaign through
-                        traditional and innovative media, to build a strong base for sustained growth.</p>
-                </div>
-                <div class="odd-visual">
-                    <img src="../assets/images/backgrounds/The_Farmer.png" alt="The Farmer Illustration"
-                        class="odd-image">
+            <div class="odd-item-wrapper">
+                <div class="odd-item">
+                    <div class="odd-text">
+                        <h3 class="script-title text-green">The farmer</h3>
+                        <h4 class="sub-title">The advertising expertise</h4>
+                        <div class="dotted-line-decoration"></div>
+                        <p>An expert in all aspects of brand building, Oddball is continuously on a look out for
+                            innovative
+                            brand solutions that can provide both long-term and short-term benefits to our brand
+                            clients. We
+                            must know what season yields what crop and how long does it take to harvest the fruits of
+                            labour. We educate ourselves as much as we educate our brand partners promoting complete
+                            transparency and managed expectations. Our firm believes in balancing each campaign through
+                            traditional and innovative media, to build a strong base for sustained growth.</p>
+                    </div>
+                    <div class="odd-visual">
+                        <img src="../assets/images/backgrounds/The_Farmer.png" alt="The Farmer Illustration"
+                            class="odd-image">
+                    </div>
                 </div>
             </div>
 
