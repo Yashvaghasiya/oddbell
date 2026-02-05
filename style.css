@@ -898,8 +898,8 @@ header {
     }
 
     .contact-banner {
-        height: 250px;
-        object-fit: cover;
+        display: none !important;
+        /* Hide image as requested */
     }
 
     .contact-text-overlay {
@@ -912,6 +912,19 @@ header {
         flex-direction: column;
         align-items: center;
         gap: 30px;
+        width: 100% !important;
+        /* Ensure full width */
+        margin: 0 !important;
+    }
+
+    /* FORCE RESET FOR ALL IMAGE WRAPPERS */
+    .consultation-image-wrapper,
+    .culture-image-wrapper,
+    .contact-image-wrapper {
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        width: 100% !important;
     }
 
     /* Stack "Let's Talk" */
