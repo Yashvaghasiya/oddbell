@@ -618,7 +618,7 @@ header {
     /* Increased from 70px */
     height: 110px;
     /* Increased from 90px */
-    background-image: url('../images/icons/hand-icon.png');
+    background-image: url('assets/images/icons/hand-icon.png');
     background-size: contain;
     background-repeat: no-repeat;
     filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.2));
