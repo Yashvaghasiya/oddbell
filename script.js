@@ -2,38 +2,68 @@
 
 // Global Scroll Animations
 document.addEventListener('DOMContentLoaded', () => {
+    // 0. Add Scroll Progress Bar
+    const progressBar = document.createElement('div');
+    progressBar.style.position = 'fixed';
+    progressBar.style.top = '0';
+    progressBar.style.left = '0';
+    progressBar.style.height = '4px';
+    progressBar.style.backgroundColor = '#00A896';
+    progressBar.style.zIndex = '2000';
+    progressBar.style.width = '0%';
+    progressBar.style.transition = 'width 0.1s ease-out';
+    document.body.appendChild(progressBar);
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        progressBar.style.width = scrollPercent + '%';
+    });
+
     // 1. Select all major elements to animate
     const animateTargets = document.querySelectorAll(
         '.section-title, ' +
         '.hero-video, ' +
         '.odd-item, ' +
-        '.odd-image, ' + // Scale effect candidate
+        '.odd-image, ' +
         '.consultation-text-overlay, ' +
         '.culture-card, ' +
         '.contact-text-overlay'
     );
 
-    // 2. Add base classes
-    animateTargets.forEach(el => {
+    // 2. Add base classes with specific logic
+    animateTargets.forEach((el) => {
         el.classList.add('reveal-on-scroll');
 
-        // Add specific scale effect to images for extra pop
-        if (el.classList.contains('odd-image') || el.classList.contains('hero-video')) {
+        // Directional Animation for Odd Items
+        if (el.classList.contains('odd-item')) {
+            // Check if it's odd or even index relative to parent
+            const index = Array.from(el.parentNode.children).indexOf(el);
+            if (index % 2 === 0) {
+                el.classList.add('reveal-left');
+            } else {
+                el.classList.add('reveal-right');
+            }
+        }
+
+        // Scale effect for hero video and images
+        if (el.classList.contains('hero-video') || el.classList.contains('odd-image')) {
             el.classList.add('reveal-scale');
         }
     });
 
     // 3. Observer Setup
     const observerOptions = {
-        threshold: 0.15, // Trigger slightly earlier
-        rootMargin: '0px 0px -50px 0px' // Offset to ensure it's in view
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     };
 
     const displayOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target); // Play once
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
