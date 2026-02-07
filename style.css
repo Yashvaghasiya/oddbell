@@ -837,10 +837,15 @@ header:hover {
     }
 
     /* FIX HAMBURGER ALIGNMENT */
+    /* FIX HAMBURGER ALIGNMENT - ROBUST */
     .nav-container {
-        padding: 0 !important;
-        /* Remove desktop padding */
-        width: 100%;
+        padding: 0 10px !important;
+        /* Minimal padding */
+        width: 100% !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        /* Force spread */
+        align-items: center !important;
     }
 
     .logo img {
@@ -852,9 +857,10 @@ header:hover {
         display: flex;
         flex-direction: column;
         gap: 6px;
-        /* Spacing between bars */
         cursor: pointer;
         z-index: 1001;
+        margin-left: auto !important;
+        /* Force push to right */
     }
 
     .bar {
@@ -1183,13 +1189,20 @@ header:hover {
     .contact-row {
         justify-content: flex-start;
         font-size: 1.1rem;
-        /* Premium Card Style for Mobile */
-        background: rgba(255, 255, 255, 0.08);
-        /* Subtle glass */
-        padding: 16px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(5px);
+        /* Premium Card Style for Mobile - PRO MAX */
+        background: rgba(255, 255, 255, 0.1);
+        padding: 18px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+        transition: transform 0.2s;
+    }
+
+    .contact-row:active {
+        transform: scale(0.98);
+        background: rgba(255, 255, 255, 0.15);
     }
 
     .contact-row i {
