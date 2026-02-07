@@ -59,6 +59,69 @@ body {
     width: 100%;
 }
 
+/* --- ANIMATION UTILITIES --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-scale {
+    transform: scale(0.95);
+}
+
+.reveal-scale.is-visible {
+    transform: scale(1);
+}
+
+/* Stagger Delays */
+.delay-100 {
+    transition-delay: 0.1s;
+}
+
+.delay-200 {
+    transition-delay: 0.2s;
+}
+
+.delay-300 {
+    transition-delay: 0.3s;
+}
+
+.delay-400 {
+    transition-delay: 0.4s;
+}
+
+
 /* Layout Utilities */
 .container {
     max-width: 100%;
@@ -622,108 +685,49 @@ header:hover {
     border-bottom: none;
 }
 
-/* Icons */
+/* Icons - Premium SVG Data URIs for Consistency */
 .icon-phone::before,
 .icon-mail::before,
 .icon-insta::before,
 .icon-linkedin::before {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    /* Increased from 40px */
-    height: 50px;
-    /* Increased from 40px */
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    font-size: 2.2rem;
-    /* Increased from 1.8rem */
-    font-weight: 400;
-}
-
-.icon-phone::before {
-    content: '📞';
-}
-
-.icon-mail::before {
-    content: '✉';
-}
-
-.icon-insta::before {
-    content: '◉';
-    font-size: 2.4rem;
-    /* Increased */
-}
-
-.icon-linkedin::before {
-    content: 'in';
-    font-family: 'Arial', sans-serif;
-    font-weight: 900;
-    font-size: 2rem;
-    /* Increased */
-    background: #fff;
-    color: #52C5A2;
-}
-
-/* Hand Cursor */
-.hand-cursor {
-    position: absolute;
-    bottom: 0%;
-    right: 15%;
-    width: 90px;
-    /* Increased from 70px */
-    height: 110px;
-    /* Increased from 90px */
-    background-image: url('assets/images/icons/hand-icon.png');
-    background-size: contain;
+    content: '';
+    display: inline-block;
+    width: 32px;
+    /* Consistent size */
+    height: 32px;
     background-repeat: no-repeat;
-    filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.2));
-    animation: floatHand 2s infinite ease-in-out;
-    pointer-events: none;
-    z-index: 10;
+    background-position: center;
+    background-size: contain;
+    vertical-align: middle;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
 }
 
-@keyframes floatHand {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
+.contact-row:hover .icon-phone::before,
+.contact-row:hover .icon-mail::before,
+.contact-row:hover .icon-insta::before,
+.contact-row:hover .icon-linkedin::before {
+    transform: scale(1.2) rotate(5deg);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
 }
 
-/* Icons */
+/* Phone Icon */
 .icon-phone::before {
-    content: '\260E';
-    font-size: 1.8rem;
-    /* Increased */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'%3E%3C/path%3E%3C/svg%3E");
 }
 
+/* Mail Icon */
 .icon-mail::before {
-    content: '\2709';
-    font-size: 1.8rem;
-    /* Increased */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'%3E%3C/path%3E%3Cpolyline points='22,6 12,13 2,6'%3E%3C/polyline%3E%3C/svg%3E");
 }
 
+/* Instagram Icon */
 .icon-insta::before {
-    content: '📷';
-    font-size: 1.8rem;
-    /* Increased */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2' width='20' height='20' rx='5' ry='5'%3E%3C/rect%3E%3Cpath d='M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z'%3E%3C/path%3E%3Cline x1='17.5' y1='6.5' x2='17.51' y2='6.5'%3E%3C/line%3E%3C/svg%3E");
 }
 
+/* LinkedIn Icon */
 .icon-linkedin::before {
-    content: 'in';
-    font-family: serif;
-    font-weight: 900;
-    font-size: 1.8rem;
-    /* Increased */
-    background: #fff;
-    color: #52C5A2;
-    padding: 0 4px;
-    border-radius: 2px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z'%3E%3C/path%3E%3Crect x='2' y='9' width='4' height='12'%3E%3C/rect%3E%3Ccircle cx='4' cy='4' r='2'%3E%3C/circle%3E%3C/svg%3E");
 }
 
 /* DESKTOP: Wrapper Styles */
@@ -879,8 +883,10 @@ header:hover {
     .hero-box {
         width: 100% !important;
         margin: 0 !important;
-        height: 60vh !important;
-        /* Reduced height for mobile */
+        height: auto !important;
+        /* Automatic height based on video */
+        aspect-ratio: 16/9;
+        /* Enforce standard video ratio */
         border-radius: 0;
     }
 
@@ -1014,6 +1020,8 @@ header:hover {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        margin-top: 20px;
+        /* Push text down as requested */
     }
 
     .rotate-text-group {

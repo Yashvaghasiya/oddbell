@@ -1,39 +1,46 @@
 // Simple Scroll Animation using Intersection Observer
 
+// Global Scroll Animations
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. Select all major elements to animate
+    const animateTargets = document.querySelectorAll(
+        '.section-title, ' +
+        '.hero-video, ' +
+        '.odd-item, ' +
+        '.odd-image, ' + // Scale effect candidate
+        '.consultation-text-overlay, ' +
+        '.culture-card, ' +
+        '.contact-text-overlay'
+    );
 
-    // Select elements to animate
-    const animatedElements = document.querySelectorAll('.odd-item, .content-group, .culture-card');
+    // 2. Add base classes
+    animateTargets.forEach(el => {
+        el.classList.add('reveal-on-scroll');
 
+        // Add specific scale effect to images for extra pop
+        if (el.classList.contains('odd-image') || el.classList.contains('hero-video')) {
+            el.classList.add('reveal-scale');
+        }
+    });
+
+    // 3. Observer Setup
     const observerOptions = {
-        threshold: 0.2
+        threshold: 0.15, // Trigger slightly earlier
+        rootMargin: '0px 0px -50px 0px' // Offset to ensure it's in view
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const displayOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-up');
-                observer.unobserve(entry.target); // Only animate once
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // Play once
             }
         });
     }, observerOptions);
 
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-        observer.observe(el);
+    animateTargets.forEach(el => {
+        displayOnScroll.observe(el);
     });
-
-    // Specific class for the active state
-    const style = document.createElement('style');
-    style.innerHTML = `
-        .fade-in-up {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-    `;
-    document.head.appendChild(style);
 });
 
 // Video Loop Logic
