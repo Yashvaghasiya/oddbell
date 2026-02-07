@@ -6,66 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oddball Advertising</title>
     <link rel="stylesheet" href="style.css?v=11">
-    <style>
-        /* CRITICAL MOBILE FIX - INLINE TO FORCE RELOAD */
-        @media (max-width: 767px) {
 
-            /* 1. RESET SCALING for odd-item-wrapper */
-            .odd-item-wrapper {
-                transform: none !important;
-                width: 100% !important;
-                margin: 0 !important;
-            }
-
-            /* 2. GRID LAYOUT for odd-item */
-            .odd-item {
-                display: grid !important;
-                grid-template-rows: auto minmax(180px, 240px);
-                /* Vertical stack */
-                gap: 20px;
-                text-align: center;
-                margin-bottom: 40px;
-                padding-bottom: 20px;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            }
-
-            .odd-item:last-child {
-                border-bottom: none;
-            }
-
-            /* 3. TEXT STYLING */
-            .odd-text {
-                flex: none !important;
-                width: 100% !important;
-                padding: 0 20px !important;
-                /* Symmetric padding */
-                box-sizing: border-box;
-            }
-
-            .odd-text .script-title {
-                font-size: 3.5rem !important;
-            }
-
-            .odd-text .sub-title {
-                font-size: 1.5rem !important;
-            }
-
-            /* 4. IMAGE STYLING */
-            .odd-visual {
-                flex: none !important;
-                width: 100% !important;
-                justify-content: center !important;
-                align-items: center !important;
-            }
-
-            .odd-image {
-                margin: 0 !important;
-                max-width: 80% !important;
-                height: auto;
-                object-fit: contain;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -78,7 +19,7 @@
             </a>
 
             <!-- Hamburger Menu Icon -->
-            <div class="hamburger">
+            <div class="hamburger" role="button" aria-label="Toggle navigation" tabindex="0">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -100,16 +41,16 @@
     <section class="hero">
         <div class="container">
             <div class="hero-box">
-                <video class="hero-video active" muted playsinline preload="metadata">
+                <video class="hero-video active" muted playsinline preload="metadata" aria-hidden="true">
                     <source src="assets/videos/1.mp4" type="video/mp4">
                 </video>
-                <video class="hero-video" muted playsinline preload="none">
+                <video class="hero-video" muted playsinline preload="none" aria-hidden="true">
                     <source src="assets/videos/2.mp4" type="video/mp4">
                 </video>
-                <video class="hero-video" muted playsinline preload="none">
+                <video class="hero-video" muted playsinline preload="none" aria-hidden="true">
                     <source src="assets/videos/3.mp4" type="video/mp4">
                 </video>
-                <video class="hero-video" muted playsinline preload="none">
+                <video class="hero-video" muted playsinline preload="none" aria-hidden="true">
                     <source src="assets/videos/4.mp4" type="video/mp4">
                 </video>
             </div>
