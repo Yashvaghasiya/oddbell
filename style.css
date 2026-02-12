@@ -9,903 +9,121 @@
     font-style: normal;
 }
 
+/* Custom Font - League Spartan Regular */
+@font-face {
+    font-family: 'LeagueSpartan-Regular';
+    src: url('assets/fonts/League_Spartan,Libre_Baskerville/League_Spartan/static/LeagueSpartan-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Custom Font - League Spartan Light */
+@font-face {
+    font-family: 'LeagueSpartan-Light';
+    src: url('assets/fonts/League_Spartan,Libre_Baskerville/League_Spartan/static/LeagueSpartan-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Custom Font - League Spartan Bold */
+@font-face {
+    font-family: 'LeagueSpartan-Bold';
+    src: url('assets/fonts/League_Spartan,Libre_Baskerville/League_Spartan/static/LeagueSpartan-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
 :root {
     /* Palette - Neubrutalism Adapted */
     --color-green: #00A896;
     --color-teal: #006D77;
     --color-pink: #EC4899;
-    /* New Primary */
     --color-pink-light: #FDF2F8;
-    /* New Bg */
-    --color-cyan: #06B6D4;
-    /* New CTA */
-    --color-text: #831843;
-    /* High Contrast Text */
 
-    /* Fonts */
-    --font-heading: 'Archivo', sans-serif;
-    --font-body: 'Space Grotesk', sans-serif;
-    --accent-font: 'Brush Script MT', 'Comic Sans MS', cursive;
-    /* Keeping for specific handwritten vibes */
-
-    /* Neubrutalism Core */
-    --border-black: 2px solid #000000;
-    --shadow-hard: 4px 4px 0px 0px #000000;
-    --shadow-hover: 6px 6px 0px 0px #000000;
-}
-
-/* Global Safety Reset */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    max-width: 100vw;
-    overflow-x: hidden;
-}
-
-body {
-    font-family: var(--font-body);
-    margin: 0;
-    padding: 0;
-    background: var(--color-pink-light);
-    color: #000;
-    max-width: 100vw;
-    overflow-x: hidden;
-    position: relative;
-    width: 100%;
-}
-
-/* --- ANIMATION UTILITIES --- */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
+    /* Custom Font - League Spartan SemiBold */
+    @font-face {
+        font-family: 'LeagueSpartan-SemiBold';
+        src: url('assets/fonts/League_Spartan,Libre_Baskerville/League_Spartan/static/LeagueSpartan-SemiBold.ttf') format('truetype');
+        font-weight: 600;
+        font-style: normal;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
+    /* Custom Font - League Spartan Medium */
+    @font-face {
+        font-family: 'LeagueSpartan-Medium';
+        src: url('assets/fonts/League_Spartan,Libre_Baskerville/League_Spartan/static/LeagueSpartan-Medium.ttf') format('truetype');
+        font-weight: 500;
+        font-style: normal;
     }
 
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
+    :root {
+        /* Palette - Neubrutalism Adapted */
+        --color-green: #00A896;
+        --color-text: #831843;
 
-.reveal-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
-    will-change: opacity, transform;
-}
+        /* Fonts */
+        --font-heading: 'Archivo', sans-serif;
+        --font-body: 'LeagueSpartan-Light', sans-serif;
+        --font-accent-bold: 'LeagueSpartan-Regular', sans-serif;
+        /* New font for p and contact */
+        --accent-font: 'Brush Script MT', 'Comic Sans MS', cursive;
 
-.reveal-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.reveal-scale {
-    transform: scale(0.95);
-}
-
-.reveal-scale.is-visible {
-    transform: scale(1);
-}
-
-/* Stagger Delays */
-.delay-100 {
-    transition-delay: 0.1s;
-}
-
-.delay-200 {
-    transition-delay: 0.2s;
-}
-
-.delay-300 {
-    transition-delay: 0.3s;
-}
-
-.delay-400 {
-    transition-delay: 0.4s;
-}
-
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
+        /* Neubrutalism Core - Removed Shadows */
+        --border-black: 2px solid #000000;
+        --shadow-hard: none;
+        --shadow-hover: none;
     }
 
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.reveal-left {
-    opacity: 0;
-    /* Ensure starting state is hidden */
-    transform: translateX(-50px);
-    transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
-}
-
-.reveal-left.is-visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.reveal-right {
-    opacity: 0;
-    /* Ensure starting state is hidden */
-    transform: translateX(50px);
-    transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
-}
-
-.reveal-right.is-visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-
-/* Layout Utilities */
-.container {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 40px;
-    /* Fluid width padding */
-    position: relative;
-    width: 100%;
-}
-
-.section-title {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    /* Bolder */
-    text-transform: uppercase;
-    /* Stronger presence */
-    font-size: 3rem;
-    text-align: center;
-    margin: 60px 0 40px;
-    color: #000;
-    letter-spacing: -1px;
-    text-shadow: 2px 2px 0px #EC4899;
-    /* Pink shadow accent */
-}
-
-/* Header */
-/* Header - Neubrutalism Pill */
-header {
-    position: sticky;
-    top: 20px;
-    z-index: 1000;
-    background: white;
-    padding: 10px 0;
-    /* Hard Shadow & Border */
-    box-shadow: var(--shadow-hard);
-    width: 90%;
-    max-width: 1400px;
-    margin: 0 auto;
-    border-radius: 60px;
-    border: var(--border-black);
-    overflow-x: visible;
-    overflow-y: visible;
-    transition: all 0.2s ease-in-out;
-}
-
-header:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: var(--shadow-hover);
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 100%;
-    width: 100%;
-    padding: 0 50px;
-    /* Balanced padding for the pill */
-    box-sizing: border-box;
-}
-
-.logo {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    height: 65px;
-    /* Slightly smaller to fit the graceful pill */
-    width: auto;
-    display: block;
-    transition: transform 0.3s ease;
-}
-
-.logo:hover img {
-    transform: scale(1.05);
-    /* Subtle pop on logo hover */
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    flex-shrink: 0;
-    align-items: center;
-}
-
-.nav-links li {
-    margin-left: 40px;
-}
-
-/* Creative Nav Link Hover Effect */
-.nav-links a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    font-size: 1.1rem;
-    position: relative;
-    padding: 5px 0;
-    transition: color 0.3s ease;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-teal), var(--color-green));
-    border-radius: 2px;
-    transition: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.nav-links a:hover {
-    color: var(--color-teal);
-}
-
-.nav-links a:hover::after,
-.nav-links a.active::after {
-    width: 100%;
-}
-
-
-
-.nav-links a.active {
-    color: var(--color-teal);
-}
-
-/* Hero Section */
-.hero {
-    position: relative;
-    text-align: center;
-    padding: 0;
-    width: 100%;
-    overflow: hidden;
-    /* Strict Clipping */
-}
-
-.hero .container {
-    max-width: 100%;
-    padding: 0;
-    margin: 0;
-}
-
-.hero-box {
-    width: 100%;
-    height: 90vh;
-    /* Full viewport height impact */
-    border-radius: 0;
-    /* No corners for full width */
-    overflow: hidden;
-    position: relative;
-    margin: 0;
-    box-shadow: none;
-}
-
-.hero-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Ensure video fills the screen */
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    z-index: 0;
-}
-
-.hero-video.active {
-    opacity: 1;
-    z-index: 2;
-}
-
-/* Odd Approach Section */
-.odd-approach {
-    padding: 50px 0;
-    width: 100%;
-    overflow: hidden;
-    /* Strict Clipping */
-}
-
-.odd-item {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-bottom: 20px;
-    gap: 0;
-    position: relative;
-
-    /* Neubrutalism Card Style */
-    background: white;
-    border: var(--border-black);
-    box-shadow: var(--shadow-hard);
-    padding: 20px;
-    border-radius: 12px;
-    /* Slight roundness */
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.odd-item:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: var(--shadow-hover);
-}
-
-.odd-text {
-    flex: 0 0 40%;
-    max-width: none;
-    padding-right: 0;
-    z-index: 2;
-}
-
-.odd-visual {
-    flex: 0 0 60%;
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
-    overflow: hidden;
-}
-
-.odd-image {
-    width: 120%;
-    max-width: 120%;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    margin-right: 0;
-}
-
-/* Typography Refinements */
-.script-title {
-    font-family: 'HolidayFree', cursive;
-    font-size: 4.5rem;
-    font-weight: 400;
-    margin-bottom: 10px;
-    color: #00A896;
-    line-height: 1.2;
-}
-
-.sub-title {
-    font-size: 2.2rem;
-    /* Increased from 2rem */
-    color: #1a4f6e;
-    font-weight: 700;
-    margin-bottom: 25px;
-    letter-spacing: -0.3px;
-}
-
-.odd-text p {
-    font-size: 1.6rem;
-    /* Increased from 1.5rem */
-    color: #666;
-    line-height: 1.6;
-    max-width: 100%;
-    /* Full usage of container */
-}
-
-/* Consultation Section */
-.consultation-section {
-    position: relative;
-    padding-bottom: 20px;
-    width: 100%;
-    overflow: hidden;
-    /* Strict Clipping */
-}
-
-.consultation-image-wrapper,
-.culture-image-wrapper {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    /* Prevent image overflow */
-}
-
-.consultation-banner,
-.culture-banner,
-.contact-banner {
-    width: 100%;
-    max-width: 100%;
-    /* Ensure images don't exceed container */
-    height: auto;
-    display: block;
-    object-fit: cover;
-}
-
-.consultation-text-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.consultation-text-overlay>* {
-    pointer-events: auto;
-}
-
-.consultation-text-overlay .content-group {
-    position: absolute;
-    top: 50%;
-    /* Centered vertically */
-    transform: translateY(-50%);
-    left: 7%;
-    width: 48%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.rotate-text-group {
-    transform: rotate(-8deg);
-    margin-bottom: 10px;
-}
-
-.handwritten-heading {
-    font-family: var(--accent-font);
-    font-size: 6rem;
-    /* Increased from 5rem */
-    color: #154660;
-    line-height: 1;
-    margin-bottom: 5px;
-}
-
-.odd-stickers {
-    display: inline-flex;
-    gap: 8px;
-    margin-left: 10px;
-    vertical-align: middle;
-}
-
-.sticker {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: 2.5rem;
-    color: #000;
-    /* Black text for contract */
-    padding: 6px 14px;
-    border: var(--border-black);
-    box-shadow: var(--shadow-hard);
-    /* Hard shadow */
-    line-height: 1;
-}
-
-.sticker.green {
-    background-color: #00A896;
-    transform: rotate(-6deg);
-}
-
-.sticker.orange {
-    background-color: #F87D39;
-    transform: rotate(6deg);
-}
-
-.sticker.orange:last-child {
-    transform: rotate(-4deg);
-}
-
-.main-copy h3 {
-    font-size: 1.8rem;
-    /* Increased from 1.6rem */
-    color: #333;
-    margin-bottom: 15px;
-    line-height: 1.3;
-    font-weight: 600;
-}
-
-.highlight-blue {
-    color: #0066CC;
-    font-weight: 800;
-}
-
-.price-tag-long {
-    background-color: var(--color-pink);
-    color: white;
-    padding: 12px 26px;
-    font-weight: 700;
-    font-size: 1.3rem;
-    display: inline-block;
-    border-radius: 8px;
-    border: var(--border-black);
-    box-shadow: var(--shadow-hard);
-    transform: rotate(-2deg);
-}
-
-.consult-desc-box {
-    color: #1a4f6e;
-    font-size: 2.2rem;
-    /* Increased from 2rem */
-    line-height: 1.6;
-    max-width: 95%;
-}
-
-.consult-desc-box strong {
-    font-weight: 800;
-    color: #154660;
-}
-
-.tagline-blue {
-    color: #0066CC;
-    font-weight: 700;
-    margin-top: 10px;
-    font-size: 1.3rem;
-    /* Increased from 1.1rem */
-}
-
-/* Culture Section */
-.culture-section {
-    padding-bottom: 100px;
-    width: 100%;
-    overflow: hidden;
-    /* Strict Clipping */
-}
-
-.culture-text-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.culture-text-overlay .culture-card {
-    position: absolute;
-    top: 48%;
-    left: 7%;
-    width: 42%;
-    pointer-events: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.culture-card .bulb-icon-img {
-    display: none;
-}
-
-.culture-card h3 {
-    font-size: 2.2rem;
-    /* Increased from 2rem */
-    color: #333;
-    font-weight: 400;
-    margin-bottom: 15px;
-    line-height: 1.3;
-}
-
-.culture-card h3 span.normal-text {
-    color: #444;
-    font-weight: 400;
-}
-
-.culture-card h3 strong,
-.culture-card h3 b,
-.culture-card h3 .bold-blue {
-    color: #154660;
-    font-weight: 800;
-}
-
-.culture-desc {
-    font-size: 1.3rem;
-    /* Increased from 1.15rem */
-    color: #006D77;
-    line-height: 1.5;
-    font-weight: 600;
-}
-
-/* Contact Section Refinements */
-.contact-section {
-    padding-bottom: 100px;
-    background-color: transparent;
-    color: white;
-    position: relative;
-    overflow: hidden;
-    /* Strict Clipping */
-    width: 100%;
-}
-
-.contact-image-wrapper {
-    position: relative;
-    width: 100%;
-}
-
-.contact-banner {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.contact-text-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.contact-text-overlay>* {
-    pointer-events: auto;
-}
-
-/* Let's Talk Group */
-.lets-talk-group {
-    position: absolute;
-    top: 53%;
-    /* Centered in Blue Bubble */
-    left: 24%;
-    /* Moved further left as requested */
-    transform: translate(-50%, -50%);
-    font-size: 8rem;
-    /* Increased from 6rem */
-    font-weight: 700;
-    font-family: var(--primary-font);
-    line-height: 1;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-    letter-spacing: -1.5px;
-}
-
-.lt-black {
-    color: #000000;
-    margin-right: 25px;
-    /* Balanced spacing */
-}
-
-.lt-white {
-    color: #FFFFFF;
-}
-
-/* Contact Info Group (Right Side) */
-.contact-info-group {
-    position: absolute;
-    top: 52%;
-    left: 58%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-    width: 450px;
-    /* Increased from 400px */
-}
-
-.contact-row {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    font-size: 2.2rem;
-    /* Increased from 2rem */
-    font-weight: 500;
-    color: #fff;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
-    padding-bottom: 12px;
-    width: 100%;
-}
-
-.contact-row:last-child {
-    border-bottom: none;
-}
-
-/* Icons - Premium SVG Data URIs for Consistency */
-.icon-phone::before,
-.icon-mail::before,
-.icon-insta::before,
-.icon-linkedin::before {
-    content: '';
-    display: inline-block;
-    width: 32px;
-    /* Consistent size */
-    height: 32px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    vertical-align: middle;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
-}
-
-.contact-row:hover .icon-phone::before,
-.contact-row:hover .icon-mail::before,
-.contact-row:hover .icon-insta::before,
-.contact-row:hover .icon-linkedin::before {
-    transform: scale(1.2) rotate(5deg);
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
-}
-
-/* Phone Icon */
-.icon-phone::before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'%3E%3C/path%3E%3C/svg%3E");
-}
-
-/* Mail Icon */
-.icon-mail::before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'%3E%3C/path%3E%3Cpolyline points='22,6 12,13 2,6'%3E%3C/polyline%3E%3C/svg%3E");
-}
-
-/* Instagram Icon */
-.icon-insta::before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='2' width='20' height='20' rx='5' ry='5'%3E%3C/rect%3E%3Cpath d='M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z'%3E%3C/path%3E%3Cline x1='17.5' y1='6.5' x2='17.51' y2='6.5'%3E%3C/line%3E%3C/svg%3E");
-}
-
-/* LinkedIn Icon */
-.icon-linkedin::before {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z'%3E%3C/path%3E%3Crect x='2' y='9' width='4' height='12'%3E%3C/rect%3E%3Ccircle cx='4' cy='4' r='2'%3E%3C/circle%3E%3C/svg%3E");
-}
-
-/* DESKTOP: Wrapper Styles */
-.odd-item-wrapper,
-.consultation-image-wrapper,
-.culture-image-wrapper,
-.contact-image-wrapper {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-
-/* STRICT UNIFORM PROPORTIONAL SCALING - ALL SECTIONS */
-@media (max-width: 767px) {
-
-    /* --- 1. GLOBAL RESET & TYPOGRAPHY --- */
-    html,
-    body {
-        overflow-x: hidden;
-        width: 100%;
-        position: relative;
-    }
-
-    .container {
-        padding: 0 20px !important;
-        /* Standard mobile padding */
-        width: 100%;
-    }
-
-    /* Section Padding - Reduce vertical space */
-    .odd-approach,
-    .consultation-section,
-    .culture-section,
-    .contact-section {
-        padding-top: 40px !important;
-        padding-bottom: 40px !important;
-    }
-
-    .section-title {
-        margin: 30px 0 25px !important;
-        font-size: 2.2rem !important;
-        /* Readable but punchy */
-    }
-
-    /* --- 2. HEADER & NAV DRAWER --- */
-    header {
-        width: 100%;
-        margin: 0;
-        top: 0;
-        border-radius: 0;
-        padding: 12px 15px;
-        /* Tighter padding */
-        border: none;
-        border-bottom: 2px solid #000;
-        /* Neubrutalism border */
-        background: rgba(255, 255, 255, 0.98);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    }
-
-    /* FIX HAMBURGER ALIGNMENT */
-    .nav-container {
-        padding: 0 !important;
-        /* Remove desktop padding */
-        width: 100%;
-    }
-
-    .logo img {
-        height: 45px !important;
-        /* Smaller logo */
-    }
-
-    .hamburger {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        /* Spacing between bars */
-        cursor: pointer;
-        z-index: 1001;
-    }
-
-    .bar {
-        width: 28px;
-        height: 3px;
-        background-color: #000;
-        transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        border-radius: 2px;
-    }
-
-    /* Active State for Hamburger */
-    .hamburger.active .bar:nth-child(1) {
-        transform: rotate(45deg) translate(6px, 6px);
-    }
-
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
-    }
-
-    /* Nav Drawer */
-    .nav-links {
-        display: none;
-        /* Hidden by default */
-        flex-direction: column;
-        position: fixed;
-        /* Fixed viewport */
-        top: 65px;
-        /* Height of header approx */
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 65px);
-        background: white;
-        padding: 30px 20px;
+    /* Global Safety Reset */
+    *,
+    *::before,
+    *::after {
         box-sizing: border-box;
-        border-top: 2px solid #000;
-        z-index: 1000;
+        box-shadow: none !important;
+        /* Force remove all shadows */
     }
 
-    .nav-links.active {
-        display: flex;
-        animation: slideDown 0.3s ease-out forwards;
+    html {
+        scroll-behavior: smooth;
+        max-width: 100vw;
+        overflow-x: hidden;
     }
 
-    @keyframes slideDown {
+    body {
+        font-family: var(--font-body);
+        margin: 0;
+        padding: 0;
+        background: white;
+        /* Removed pink background */
+        color: #000;
+        max-width: 100vw;
+        overflow-x: hidden;
+        position: relative;
+        width: 100%;
+    }
+
+    p,
+    .contact-section {
+        font-family: var(--font-accent-bold) !important;
+    }
+
+    /* Specific Shadow Removal for Heading Text */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .section-title,
+    .script-title {
+        text-shadow: none !important;
+    }
+
+    /* --- ANIMATION UTILITIES --- */
+    @keyframes fadeInUp {
         from {
             opacity: 0;
-            transform: translateY(-10px);
+            transform: translateY(40px);
         }
 
         to {
@@ -914,292 +132,1225 @@ header:hover {
         }
     }
 
-    .nav-links li {
-        margin: 15px 0;
+    @keyframes fadeInScale {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+        will-change: opacity, transform;
+    }
+
+    .reveal-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .reveal-scale {
+        transform: scale(0.95);
+    }
+
+    .reveal-scale.is-visible {
+        transform: scale(1);
+    }
+
+    /* Stagger Delays */
+    .delay-100 {
+        transition-delay: 0.1s;
+    }
+
+    .delay-200 {
+        transition-delay: 0.2s;
+    }
+
+    .delay-300 {
+        transition-delay: 0.3s;
+    }
+
+    .delay-400 {
+        transition-delay: 0.4s;
+    }
+
+    @keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .reveal-left {
+        opacity: 0;
+        /* Ensure starting state is hidden */
+        transform: translateX(-50px);
+        transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .reveal-left.is-visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .reveal-right {
+        opacity: 0;
+        /* Ensure starting state is hidden */
+        transform: translateX(50px);
+        transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .reveal-right.is-visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+
+    /* Layout Utilities */
+    .container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 40px;
+        /* Fluid width padding */
+        position: relative;
         width: 100%;
+    }
+
+    .section-title {
+        font-family: 'LeagueSpartan-SemiBold', sans-serif;
+        /* Updated to SemiBold */
+        font-size: 3.5vw;
+        /* Large, responsive size */
+        font-weight: 600;
+        text-transform: var(--font-heading);
+        color: #000;
+        /* Light grey outline */
         text-align: center;
+        margin-bottom: 60px;
+        white-space: nowrap;
+        /* Prevent wrapping */
+        letter-spacing: -2px;
+        line-height: 0.8;
     }
 
-    .nav-links a {
-        font-size: 1.5rem;
-        /* Larger touch targets */
-        display: block;
-        padding: 15px;
-        border: 2px solid transparent;
-        border-radius: 8px;
-        transition: all 0.2s;
-    }
-
-    .nav-links a:active {
-        background-color: var(--color-pink-light);
-        border-color: #000;
-    }
-
-    /* --- 3. HERO SECTION --- */
-    .hero-box {
-        width: 100% !important;
-        margin: 0 !important;
-        height: auto !important;
-        /* Automatic height based on video */
-        aspect-ratio: 16/9;
-        /* Enforce standard video ratio */
+    /* Header */
+    /* Header - Simple Design */
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: white;
+        padding: 15px 0;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
         border-radius: 0;
+        border: none;
+        border-bottom: 1px solid #e0e0e0;
+        /* Subtle bottom border */
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 100%;
+        width: 100%;
+        padding: 0 50px;
+        /* Balanced padding for the pill */
+        box-sizing: border-box;
+    }
+
+    .logo {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo img {
+        height: 65px;
+        /* Slightly smaller to fit the graceful pill */
+        width: auto;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .logo:hover img {
+        transform: scale(1.05);
+        /* Subtle pop on logo hover */
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        flex-shrink: 0;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin-left: 60px;
+        /* Increased spacing */
+    }
+
+    /* Simple Nav Link Style */
+    .nav-links a {
+        font-family: 'LeagueSpartan-Regular', sans-serif !important;
+        /* User requested Regular */
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        font-size: 1.1rem;
+        padding: 5px 0;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: #000;
+        /* Simple hover color change */
+    }
+
+    .nav-links a.active {
+        color: #000;
+        font-weight: 600;
+    }
+
+
+
+    .nav-links a.active {
+        color: var(--color-teal);
+    }
+
+    /* Hero Section */
+    .hero {
+        position: relative;
+        text-align: center;
+        padding: 20px 40px;
+        /* Add horizontal padding for margins */
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .hero .container {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .hero-box {
+        width: 100%;
+        height: 90vh;
+        /* Add border radius for refined look */
+        overflow: hidden;
+        position: relative;
+        margin: 0;
+        box-shadow: none;
     }
 
     .hero-video {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        /* Ensure video fills the screen */
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        z-index: 0;
     }
 
-    /* --- 4. ODD APPROACH (Vertical Stack) --- */
-    .odd-item-wrapper {
-        width: 100% !important;
-        margin: 0 !important;
-        transform: none !important;
+    .hero-video.active {
+        opacity: 1;
+        z-index: 2;
     }
+
+    /* Hand Cursor */
+    .hand-cursor {
+        position: absolute;
+        bottom: 20px;
+        right: 40px;
+        z-index: 20;
+        font-size: 80px;
+        color: white;
+        text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+        animation: floatCursor 3s ease-in-out infinite;
+        cursor: default;
+    }
+
+    .hand-cursor::after {
+        content: '👆';
+        /* Using emoji as a robust fallback */
+        display: block;
+        transform: rotate(-15deg);
+    }
+
+    /* Odd Approach Section */
+    .odd-approach {
+        padding: 50px 40px;
+        width: 100%;
+        overflow: hidden;
+        /* Strict Clipping */
+    }
+
+    /* Odd Approach Section Refactor - 50% width images, no gaps */
+    .odd-item-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 0;
+        /* Remove gap */
+        flex-wrap: nowrap;
+        flex-direction: row !important;
+        /* Force Image Right for All (Row = Text -> Image) */
+    }
+
+    /* Removed .odd-item-wrapper.reverse logic to keep consistent alignment */
 
     .odd-item {
-        display: flex !important;
-        flex-direction: column-reverse;
-        /* Visual on top, text below? Or Text top? Let's do Text Top (column) then image. Wait, design usually prefers Image. Let's do `column`. */
-        flex-direction: column;
-        gap: 20px;
-        text-align: left;
-        /* Left align for readability */
-        padding: 25px 20px;
-        margin-bottom: 30px;
-        box-shadow: 4px 4px 0px 0px #000 !important;
-        /* Keep the hard shadow */
-        border: 2px solid #000 !important;
-    }
-
-    .odd-text {
-        flex: none !important;
-        width: 100% !important;
-        padding: 0 !important;
-    }
-
-    .odd-visual {
-        flex: none !important;
-        width: 100% !important;
-        justify-content: center !important;
-        margin-top: 10px;
-    }
-
-    .odd-image {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
-        max-height: none !important;
-        object-fit: contain;
-        margin: 0 !important;
-        filter: drop-shadow(4px 4px 0px #000);
-    }
-
-    .odd-text .script-title {
-        font-size: 3rem !important;
-        text-align: center;
-    }
-
-    .odd-text .sub-title {
-        font-size: 1.4rem !important;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .odd-text p {
-        font-size: 1.05rem !important;
-        text-align: left;
-        /* Keep body text readable */
-    }
-
-    /* --- 5. CONSULTATION, CULTURE & CONTACT (Stacked Layout) --- */
-
-    /* Shared Reset */
-    .consultation-image-wrapper,
-    .culture-image-wrapper,
-    .contact-image-wrapper {
-        width: 100% !important;
-        height: auto !important;
+        flex: 0 0 50%;
+        /* Text takes 50% width */
         display: flex;
         flex-direction: column;
-    }
-
-    /* Images */
-    /* Images */
-    .consultation-banner,
-    .culture-banner {
-        display: none !important;
-    }
-
-    .contact-banner {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        position: relative;
-        display: none !important;
-        border-bottom: 2px solid #000;
-    }
-
-    /* Hide Contact Banner if it's just a background, but replacing it might be better. 
-       Let's keep it but small. */
-    .contact-banner {
-        display: none !important;
-        /* Actually hiding it is cleaner for contact */
-    }
-
-    /* Text Containers - Convert from Overlay to Block */
-    .consultation-text-overlay,
-    .culture-text-overlay,
-    .contact-text-overlay {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        width: 100% !important;
-        height: auto !important;
-        transform: none !important;
+        justify-content: center;
+        padding: 60px;
+        /* Add padding for content breathing */
         background: white;
-        padding: 30px 20px !important;
-        box-sizing: border-box;
-        pointer-events: auto !important;
-    }
-
-    /* Consultation Specifics */
-    .consultation-text-overlay .content-group {
+        box-shadow: none !important;
+        border: none;
+        border-radius: 0;
         position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-        width: 100%;
+        z-index: 2;
+    }
+
+    .odd-visual-full {
+        flex: 0 0 80%;
+        margin-left: -30%;
+        /* Pull image back to fit in view (50% + 80% - 30% = 100%) */
+        position: relative;
+        z-index: 1;
+        /* Image takes 50% width */
+        height: 100%;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        margin-top: 20px;
-        /* Push text down as requested */
+        align-items: flex-end;
+        justify-content: flex-end;
+        overflow: hidden;
+        /* padding-right: 100%; removed because 'right padding' is invalid and 100% is likely not intended */
     }
 
-    .rotate-text-group {
-        transform: rotate(-2deg);
-        /* Reduce rotation for mobile */
-        margin-bottom: 20px;
+    .odd-image-full {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Cover the area */
+        display: block;
     }
 
-    .handwritten-heading {
-        font-size: 3rem;
+    /* Typography Refinements */
+    .script-title {
+        font-family: 'HolidayFree', cursive;
+        font-size: 4.5rem;
+        font-weight: 400;
+        margin-bottom: 10px;
+        color: #00A896;
+        line-height: 1.2;
     }
 
-    .sticker {
-        font-size: 1.5rem;
-        padding: 5px 10px;
+    .sub-title {
+        font-family: 'LeagueSpartan-SemiBold', sans-serif;
+        /* User requested SemiBold */
+        font-size: 2rem;
+        /* Reduced size */
+        color: #1a4f6e;
+        font-weight: 600;
+        margin-bottom: 25px;
+        letter-spacing: -0.3px;
     }
 
-    .main-copy h3 {
-        font-size: 1.3rem;
-    }
-
-    .price-tag-long {
-        font-size: 1.1rem;
-        padding: 10px 15px;
-        margin: 15px 0;
-        transform: rotate(-1deg);
-    }
-
-    .consult-desc-box {
-        font-size: 1.1rem;
+    .odd-text-inner p {
+        font-family: 'LeagueSpartan-Light', sans-serif !important;
+        /* Force User requested Light */
+        font-size: 1.4rem;
+        color: #004E80;
+        /* Updated color */
+        line-height: 1.5;
+        font-weight: 500;
         max-width: 100%;
     }
 
-    /* Culture Specifics */
-    .culture-text-overlay .culture-card {
+    /* Consultation Section */
+    .consultation-section {
         position: relative;
-        top: auto;
-        left: auto;
+        padding-bottom: 20px;
         width: 100%;
-        text-align: left;
+        overflow: hidden;
+        /* Strict Clipping */
     }
 
-    .culture-card h3 {
-        font-size: 1.4rem;
+    .consultation-image-wrapper,
+    .culture-image-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        /* Prevent image overflow */
     }
 
-    .culture-desc {
-        font-size: 1.1rem;
-        margin-top: 15px;
+    .consultation-banner,
+    .culture-banner,
+    .contact-banner {
+        width: 100%;
+        max-width: 100%;
+        /* Ensure images don't exceed container */
+        height: auto;
+        display: block;
+        object-fit: cover;
     }
 
-    /* Contact Specifics */
-    .contact-section {
-        background: #154660;
-        /* Solid background matching brand */
-        padding-top: 50px !important;
+    .consultation-text-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
     }
 
-    .contact-text-overlay {
-        background: transparent;
-        /* Text sits on section bg */
-        color: white;
-        padding: 0 !important;
-        align-items: center;
-        /* Center everything */
+    .consultation-text-overlay>* {
+        pointer-events: auto;
+    }
+
+    .consultation-text-overlay .content-group {
+        position: absolute;
+        top: 50%;
+        /* Centered vertically */
+        transform: translateY(-50%);
+        left: 7%;
+        width: 48%;
         display: flex;
         flex-direction: column;
+        gap: 12px;
     }
 
-    .lets-talk-group {
+    .rotate-text-group {
         position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-        font-size: 3.5rem;
-        /* Scaled down */
-        margin-bottom: 40px;
+        /* Context for absolute positioning */
+        transform: rotate(-18deg);
+        margin-bottom: 70px;
+        margin-left: -20px;
+        display: block;
+        /* changed from flex to block for absolute positioning context consistency */
+    }
+
+    .handwritten-heading {
+        font-family: 'HolidayFree', cursive;
+        font-size: 4rem;
+        /* Adjusted based on visual */
+        color: #094977;
+        line-height: 0.8;
+        margin-bottom: 15px;
+        margin-left: 20px;
+    }
+
+    .odd-sticker-img {
+        height: auto;
+        /* Larger to match visual */
+        width: auto;
+        position: absolute;
+        /* Absolute position for precise placement */
+        top: 110px;
+        left: 270px;
+        /* Adjust to overlap "is your" */
+        transform: rotate(5deg);
+        z-index: 10;
+    }
+
+    /* Removed old .sticker styles as they are replaced by image */
+
+    .price-btn-container {
+        position: relative;
+        display: inline-block;
+        /* Fit content */
+        margin-bottom: 15px;
+        margin-left: -10px;
+        /* Slight optical adjustment */
+    }
+
+    .consultation-bg-img {
+        width: 570px;
+        /* Adjust based on reference size */
+        height: auto;
+        display: block;
+    }
+
+    .price-text-overlay {
+        position: absolute;
+        top: 35%;
+        left: 20px;
+        /* Left align text inside button */
+        transform: translateY(-50%);
+        color: white;
+        font-family: 'LeagueSpartan-Bold', sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        white-space: nowrap;
+        z-index: 2;
+        text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .sticker.green {
+        background-color: #00A896;
+        transform: rotate(-6deg);
+    }
+
+    .sticker.orange {
+        background-color: #F87D39;
+        transform: rotate(6deg);
+    }
+
+    .sticker.orange:last-child {
+        transform: rotate(-4deg);
+    }
+
+    .main-copy {
+        text-align: left;
+        margin-top: 80px;
+        /* More space from header */
+        transform: none !important;
+        /* Force straight */
+    }
+
+    .main-copy h3 {
+        font-size: 3rem;
+        color: #094977;
+        /* Blue color from image */
+        margin-bottom: 25px;
+        line-height: 1.3;
+        font-family: 'LeagueSpartan-SemiBold', sans-serif !important;
+        /* User requested SemiBold */
+        font-weight: 600 !important;
+        text-decoration-color: #0066CC;
+    }
+
+    .highlight-blue {
+        color: #094977;
+        font-weight: 800;
+    }
+
+    .price-tag-long {
+        background-color: var(--color-pink);
+        color: white;
+        padding: 12px 26px;
+        font-weight: 700;
+        font-size: 1.3rem;
+        display: inline-block;
+        border-radius: 8px;
+        border: var(--border-black);
+        box-shadow: var(--shadow-hard);
+        transform: rotate(-2deg);
+    }
+
+    .consult-desc-box {
+        color: #004E80;
+        font-size: 2rem;
+        line-height: 1.4;
+        margin-bottom: 20px;
+        text-align: left;
+        font-family: 'LeagueSpartan-Bold', sans-serif;
+        /* Make paragraph bold as per reference */
+        font-weight: 700;
+    }
+
+    .consult-desc-box strong {
+        font-weight: 00;
+        color: #004E80;
+        font-family: 'LeagueSpartan-Bold', sans-serif;
+
+        /* Add underline to bold parts if needed, or removing from parent */
+        text-decoration-thickness: 2px;
+    }
+
+    .tagline-blue {
+        color: #004E80;
+        font-weight: 800;
+        margin-top: 15px;
+        font-size: 2rem;
+        font-family: 'LeagueSpartan-Bold', sans-serif;
+        text-decoration-thickness: 2px;
+    }
+
+    /* Culture Section */
+    .culture-section {
+        padding-bottom: 100px;
+        width: 100%;
+        overflow: hidden;
+        /* Strict Clipping */
+    }
+
+    .culture-text-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    .culture-text-overlay .culture-card {
+        position: absolute;
+        top: 48%;
+        left: 7%;
+        width: 42%;
+        pointer-events: auto;
+        display: flex;
+        flex-direction: column;
         justify-content: center;
     }
 
-    .lt-black {
-        color: #fff;
-        opacity: 0.7;
+    .culture-card .bulb-icon-img {
+        display: none;
     }
 
-    .lt-white {
-        color: #fff;
+    .culture-card h3 {
+        font-size: 2.2rem;
+        /* 2x size of the normal text (2.2rem) */
+        color: #094975;
+        /* User requested color */
+        font-weight: 600;
+        margin-bottom: 25px;
+        line-height: 1.1;
+        /* Tighter line height for large text */
+        font-family: 'LeagueSpartan-SemiBold', sans-serif;
     }
 
-    .contact-info-group {
+    .culture-card h3 strong {
+        font-family: 'LeagueSpartan-SemiBold', sans-serif;
+        font-weight: 600;
+        color: #094975;
+    }
+
+    .culture-card h3 span.normal-text {
+        font-size: 1.7rem;
+        /* Reset to original size (half of parent) */
+        color: #094975;
+        font-weight: 400;
+        font-family: 'LeagueSpartan-Regular', sans-serif;
+        display: inline;
+        /* Changed from inline-block to allow text flow */
+        margin-left: 10px;
+    }
+
+    .culture-desc {
+        font-size: 1.7rem;
+        /* Slightly larger for readability */
+        color: #094975;
+        line-height: 1.5;
+        font-weight: 400;
+        font-family: 'LeagueSpartan-Regular', sans-serif !important;
+        /* Force font family */
+        margin-top: 15px;
+        margin-right: 150px;
+        /* Added significant margin to prevent overlap with image */
+    }
+
+
+
+    /* DESKTOP: Wrapper Styles */
+    .odd-item-wrapper,
+    .consultation-image-wrapper,
+    .culture-image-wrapper,
+    .contact-image-wrapper {
         position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
         width: 100%;
-        align-items: stretch;
-        /* Full width cards */
-        gap: 15px;
-        padding: 0 10px;
-        /* Slight side padding */
+        overflow: hidden;
+    }
+
+    /* STRICT UNIFORM PROPORTIONAL SCALING - ALL SECTIONS */
+    @media (max-width: 767px) {
+
+        /* --- 1. GLOBAL RESET & TYPOGRAPHY --- */
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        .container {
+            padding: 0 20px !important;
+            /* Standard mobile padding */
+            width: 100%;
+        }
+
+        /* Section Padding - Reduce vertical space */
+        .odd-approach,
+        .consultation-section,
+        .culture-section,
+        .contact-section {
+            padding-top: 40px !important;
+            padding-bottom: 40px !important;
+        }
+
+        .section-title {
+            margin: 30px 0 25px !important;
+            font-size: 2.2rem !important;
+            /* Readable but punchy */
+        }
+
+        /* --- 2. HEADER & NAV DRAWER --- */
+        header {
+            width: 100%;
+            margin: 0;
+            top: 0;
+            border-radius: 0;
+            padding: 12px 15px;
+            /* Tighter padding */
+            border: none;
+            border-bottom: 2px solid #000;
+            /* Neubrutalism border */
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        /* FIX HAMBURGER ALIGNMENT */
+        .nav-container {
+            padding: 0 !important;
+            /* Remove desktop padding */
+            width: 100%;
+        }
+
+        .logo img {
+            height: 45px !important;
+            /* Smaller logo */
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            /* Spacing between bars */
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .bar {
+            width: 28px;
+            height: 3px;
+            background-color: #000;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 2px;
+        }
+
+        /* Active State for Hamburger */
+        .hamburger.active .bar:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Nav Drawer */
+        .nav-links {
+            display: none;
+            /* Hidden by default */
+            flex-direction: column;
+            position: fixed;
+            /* Fixed viewport */
+            top: 65px;
+            /* Height of header approx */
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 65px);
+            background: white;
+            padding: 30px 20px;
+            box-sizing: border-box;
+            border-top: 2px solid #000;
+            z-index: 1000;
+        }
+
+        .nav-links.active {
+            display: flex;
+            animation: slideDown 0.3s ease-out forwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-links li {
+            margin: 15px 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .nav-links a {
+            font-size: 1.5rem;
+            /* Larger touch targets */
+            display: block;
+            padding: 15px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:active {
+            background-color: var(--color-pink-light);
+            border-color: #000;
+        }
+
+        /* --- 3. HERO SECTION --- */
+        .hero-box {
+            width: 100% !important;
+            margin: 0 !important;
+            height: auto !important;
+            /* Automatic height based on video */
+            aspect-ratio: 16/9;
+            /* Enforce standard video ratio */
+            border-radius: 0;
+        }
+
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- 4. ODD APPROACH (Vertical Stack) --- */
+        .odd-item-wrapper {
+            width: 100% !important;
+            margin: 0 !important;
+            transform: none !important;
+        }
+
+        .odd-item {
+            display: flex !important;
+            flex-direction: column-reverse;
+            /* Visual on top, text below? Or Text top? Let's do Text Top (column) then image. Wait, design usually prefers Image. Let's do `column`. */
+            flex-direction: column;
+            gap: 20px;
+            text-align: left;
+            /* Left align for readability */
+            padding: 25px 20px;
+            margin-bottom: 30px;
+            box-shadow: 4px 4px 0px 0px #000 !important;
+            /* Keep the hard shadow */
+            border: 2px solid #000 !important;
+        }
+
+        .odd-text {
+            flex: none !important;
+            width: 100% !important;
+            padding: 0 !important;
+        }
+
+        .odd-visual {
+            flex: none !important;
+            width: 100% !important;
+            justify-content: center !important;
+            margin-top: 10px;
+        }
+
+        .odd-image {
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+            max-height: none !important;
+            object-fit: contain;
+            margin: 0 !important;
+            filter: drop-shadow(4px 4px 0px #000);
+        }
+
+        .odd-text .script-title {
+            font-size: 3rem !important;
+            text-align: center;
+        }
+
+        .odd-text .sub-title {
+            font-size: 1.4rem !important;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .odd-text p {
+            font-size: 1.05rem !important;
+            text-align: left;
+            /* Keep body text readable */
+        }
+
+        /* --- 5. CONSULTATION, CULTURE & CONTACT (Stacked Layout) --- */
+
+        /* Shared Reset */
+        .consultation-image-wrapper,
+        .culture-image-wrapper,
+        .contact-image-wrapper {
+            width: 100% !important;
+            height: auto !important;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Images */
+        /* Images */
+        .consultation-banner,
+        .culture-banner {
+            display: none !important;
+        }
+
+        .contact-banner {
+            display: block !important;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Text Containers - Convert from Overlay to Block */
+        .consultation-text-overlay,
+        .culture-text-overlay,
+        .contact-text-overlay {
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            width: 100% !important;
+            height: auto !important;
+            transform: none !important;
+            background: white;
+            padding: 30px 20px !important;
+            box-sizing: border-box;
+            pointer-events: auto !important;
+        }
+
+        /* Consultation Specifics */
+        .consultation-text-overlay .content-group {
+            position: relative;
+            top: auto;
+            left: auto;
+            transform: none;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 20px;
+            /* Push text down as requested */
+        }
+
+        .rotate-text-group {
+            transform: rotate(-2deg);
+            /* Reduce rotation for mobile */
+            margin-bottom: 20px;
+        }
+
+        .handwritten-heading {
+            font-size: 3rem;
+        }
+
+        .sticker {
+            font-size: 1.5rem;
+            padding: 5px 10px;
+        }
+
+        .main-copy h3 {
+            font-size: 1.3rem;
+        }
+
+        .price-tag-long {
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            margin: 15px 0;
+            transform: rotate(-1deg);
+        }
+
+        .consult-desc-box {
+            font-size: 1.1rem;
+            max-width: 100%;
+        }
+
+        /* Culture Specifics */
+        .culture-text-overlay .culture-card {
+            position: relative;
+            top: auto;
+            left: auto;
+            width: 100%;
+            text-align: left;
+        }
+
+        .culture-card h3 {
+            font-size: 1.4rem;
+        }
+
+        .culture-desc {
+            font-size: 1.1rem;
+            margin-top: 15px;
+        }
+
+        /* --- MOBILE RESPONSIVENESS (CSS Design) --- */
+
+
+    }
+
+    /* Contact Section with Background Image */
+    .contact-section {
+        padding: 0;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .contact-content-box {
+        width: 100%;
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        padding: 0;
+        min-height: auto;
+        background: none;
+        display: block;
+    }
+
+    .contact-bg-image {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .contact-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 40px;
+    }
+
+    /* Layout Wrapper */
+    .contact-layout {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1100px;
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Left: Let's Talk Text */
+    .talk-group {
+        display: flex;
+        align-items: center;
+        margin-left: -6.5%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        /* Removed gap - individual margins set on text elements */
+    }
+
+    .text-lets {
+        font-family: 'LeagueSpartan-SemiBold', sans-serif;
+        /* User requested SemiBold */
+        font-weight: 600;
+        font-size: 7vw;
+        color: #000;
+        margin-right: 20px;
+        /* Adjustable spacing after "Let's" */
+    }
+
+    .text-talk {
+        font-family: 'LeagueSpartan-SemiBold', sans-serif;
+        /* User requested SemiBold */
+        font-weight: 600;
+        font-size: 8vw;
+        color: #fff;
+        margin-left: 40px;
+        /* Adjustable spacing before "talk" - moved to the right */
+    }
+
+    /* Right: Contact Details */
+    .contact-info-group {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5vw;
+        padding-left: 20;
+        margin-left: 18%;
+        margin-right: 0%;
     }
 
     .contact-row {
-        justify-content: flex-start;
-        font-size: 1.1rem;
-        /* Premium Card Style for Mobile */
-        background: rgba(255, 255, 255, 0.08);
-        /* Subtle glass */
-        padding: 16px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(5px);
+        display: flex;
+        flex-direction: column;
+        /* Stack icon and text */
+        align-items: flex-start;
+        /* Align to left */
+        gap: 2px;
+        /* Reduced gap */
+        font-size: 2.5vw;
+        /* Increased size */
+        font-family: 'LeagueSpartan-Medium', sans-serif;
+        /* User requested Medium */
+        font-weight: 500;
+        color: #fff;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+        padding-bottom: 0.8vw;
+        /* Reduced padding */
+        margin-bottom: 1vw;
+        /* Reduced margin */
+        width: 100%;
     }
 
-    .contact-row i {
-        transform: scale(0.9);
-        /* Slightly smaller icons */
+    .contact-row:last-child {
+        border-bottom: none;
     }
 
+    /* Contact Icons */
+    .contact-icon {
+        width: 3.5vw;
+        /* Slightly larger icon */
+        height: 3.5vw;
+        min-width: 40px;
+        min-height: 40px;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+        /* Make icons white */
+    }
+
+    /* Hand Cursor */
     .hand-cursor {
-        display: none;
-        /* Hide interactive element */
+        position: absolute;
+        bottom: 5%;
+        right: 5%;
+        z-index: 20;
+        font-size: 6vw;
+        color: white;
+        text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+        animation: floatCursor 3s ease-in-out infinite;
+        cursor: default;
     }
 
+    @keyframes floatCursor {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 767px) {
+        .contact-content-box {
+            padding: 0;
+            border-radius: 0;
+        }
+
+        .contact-overlay {
+            position: relative;
+            /* On mobile, stack content below image or overlay? User said "exact placement" but standard mobile stacks. 
+                             If "exact placement", we should keep it absolute but scale fonts down. 
+                             However, on tiny screens this breaks. 
+                             Let's keep the requested behavior: no stretch, exact placement implies responsive overlay. */
+            padding: 20px;
+            background: #4CB78F;
+            /* Fallback background for stacked content */
+            display: block;
+            height: auto;
+        }
+
+        .contact-bg-image {
+            display: none;
+            /* Hide main image on mobile if we stack? No, user wants image. */
+            /* Better approach for mobile: Keep image and overlay, but if text is too small... 
+           Let's use the image as a banner and stack text below for readability, 
+           or keep absolute if user insists on "exact placement". 
+           User said "no extra creative as it is in image". 
+           If I shrink image, text shrinks too. width: 5vw handles this somewhat. */
+            display: block;
+        }
+
+        .contact-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px;
+        }
+
+        .contact-layout {
+            flex-direction: row;
+            /* Keep row even on mobile to match image layout? */
+            /* Image has bubbles on left, space on right. */
+            max-width: 100%;
+        }
+
+        .talk-group {
+            margin-left: 2%;
+            gap: 5px;
+        }
+
+        .contact-info-group {
+            width: 50%;
+            gap: 5px;
+            margin-right: 2%;
+        }
+
+        .text-lets,
+        .text-talk {
+            font-size: 6vw;
+        }
+
+        /* Slightly larger relative for mobile */
+        .contact-row {
+            font-size: 2.5vw;
+            gap: 5px;
+            padding-bottom: 2px;
+        }
+
+        .icon-phone::before,
+        .icon-mail::before,
+        .icon-insta::before,
+        .icon-linkedin::before {
+            width: 3vw;
+            height: 3vw;
+        }
+    }
 }
